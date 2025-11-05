@@ -52,7 +52,11 @@ paths:
                       name: { type: string }
                       email: { type: string }
                       phone: { type: string }
-                      avatar: { type: string, nullable: true, description: URL }
+                      avatar:
+                        type: string
+                        nullable: true
+                        format: path
+                        example: "/media/avatars/user1.jpg"
                       ads:
                         type: array
                         items:
@@ -99,7 +103,11 @@ paths:
                       name: { type: string }
                       email: { type: string }
                       phone: { type: string }
-                      avatar: { type: string, nullable: true, description: URL }
+                      avatar:
+                        type: string
+                        nullable: true
+                        format: path
+                        example: "/media/avatars/user1.jpg"
                       ads:
                         type: array
                         items:
@@ -149,7 +157,11 @@ paths:
                   name: { type: string }
                   email: { type: string }
                   phone: { type: string }
-                  avatar: { type: string, nullable: true }
+                  avatar:
+                    type: string
+                    nullable: true
+                    format: path
+                    example: "/media/avatars/user1.jpg"
                   ads:
                     type: array
                     items:
@@ -184,6 +196,29 @@ paths:
       responses:
         '200':
           description: Обновлённый профиль
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name: { type: string }
+                  email: { type: string }
+                  phone: { type: string }
+                  avatar:
+                    type: string
+                    nullable: true
+                    format: path
+                    example: "/media/avatars/user1.jpg"
+                  ads:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id: { type: integer }
+                        title: { type: string }
+                        price: { type: number, format: float }
+                  created_at: { type: string, format: date-time }
+                  updated_at: { type: string, format: date-time }
   /api/ads/:
     get:
       summary: Список объявлений
@@ -232,7 +267,11 @@ paths:
                         id: { type: integer }
                         title: { type: string }
                         price: { type: number }
-                        image: { type: string, nullable: true }
+                        image:
+                          type: string
+                          nullable: true
+                          format: path
+                          example: "/media/ads/example.jpg"
                         owner:
                           type: object
                           properties:
@@ -280,6 +319,29 @@ paths:
       responses:
         '200':
           description: Успех
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id: { type: integer }
+                  title: { type: string }
+                  description: { type: string }
+                  price: { type: number }
+                  image:
+                    type: string
+                    nullable: true
+                    format: path
+                    example: "/media/ads/example.jpg"
+                  is_active: { type: boolean }
+                  owner:
+                    type: object
+                    properties:
+                      id: { type: integer }
+                      name: { type: string }
+                      email: { type: string }
+                  created_at: { type: string, format: date-time }
+                  updated_at: { type: string, format: date-time }
     patch:
       summary: Частично обновить объявление
       security:

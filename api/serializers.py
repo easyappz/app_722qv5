@@ -26,17 +26,20 @@ class AdShortSerializer(serializers.ModelSerializer):
 
 class AdListSerializer(serializers.ModelSerializer):
     owner = UserPublicSerializer(read_only=True)
-    image = serializers.ImageField(read_only=True)
+    image = serializers.SerializerMethodField()
 
     class Meta:
         model = Ad
         fields = ['id', 'title', 'price', 'image', 'owner', 'created_at']
         read_only_fields = ['id', 'image', 'owner', 'created_at']
 
+    def get_image(self, obj):
+        return obj.image.url if obj.image else None
+
 
 class AdDetailSerializer(serializers.ModelSerializer):
     owner = UserPublicSerializer(read_only=True)
-    image = serializers.ImageField(read_only=True)
+    image = serializers.SerializerMethodField()
 
     class Meta:
         model = Ad
@@ -45,6 +48,9 @@ class AdDetailSerializer(serializers.ModelSerializer):
             'owner', 'created_at', 'updated_at'
         ]
         read_only_fields = ['id', 'owner', 'created_at', 'updated_at']
+
+    def get_image(self, obj):
+        return obj.image.url if obj.image else None
 
 
 class AdCreateUpdateSerializer(serializers.ModelSerializer):
@@ -58,7 +64,7 @@ class AdCreateUpdateSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField()
     email = serializers.SerializerMethodField()
-    avatar = serializers.ImageField(read_only=True)
+    avatar = serializers.SerializerMethodField()
     ads = serializers.SerializerMethodField()
 
     class Meta:
@@ -71,6 +77,9 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     def get_email(self, obj):
         return obj.user.email
+
+    def get_avatar(self, obj):
+        return obj.avatar.url if obj.avatar else None
 
     def get_ads(self, obj):
         qs = obj.user.ads.all().order_by('-created_at')
