@@ -19,6 +19,9 @@ const Register = () => {
       if (data?.access) {
         localStorage.setItem('token', data.access);
       }
+      if (data?.refresh) {
+        localStorage.setItem('refresh_token', data.refresh);
+      }
       navigate('/profile');
     },
     onError: (e) => {

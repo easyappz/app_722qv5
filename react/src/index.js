@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 // Tailwind directives are included in index.css and processed by CRA + PostCSS
 import './index.css';
+// Attach axios interceptors (refresh token, etc.)
+import './api/axios.interceptors';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

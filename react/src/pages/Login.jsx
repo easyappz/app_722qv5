@@ -18,6 +18,9 @@ const Login = () => {
       if (data?.access) {
         localStorage.setItem('token', data.access);
       }
+      if (data?.refresh) {
+        localStorage.setItem('refresh_token', data.refresh);
+      }
       const from = location.state?.from || '/profile';
       navigate(from);
     },

@@ -8,6 +8,7 @@ function Header() {
 
   const onLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('refresh_token');
     navigate('/login');
   };
 
