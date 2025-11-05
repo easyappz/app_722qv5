@@ -46,6 +46,12 @@ const Profile = () => {
 
         <div data-easytag="id6-react/src/pages/Profile.jsx" className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <form data-easytag="id7-react/src/pages/Profile.jsx" onSubmit={onSave} className="lg:col-span-5 rounded-2xl border border-line bg-card p-6 shadow-soft space-y-5">
+            {me?.avatar ? (
+              <div data-easytag="id21-react/src/pages/Profile.jsx" className="flex items-center gap-3">
+                <img data-easytag="id22-react/src/pages/Profile.jsx" src={me.avatar} alt="Аватар пользователя" className="w-24 h-24 rounded-xl object-cover" />
+                <span data-easytag="id23-react/src/pages/Profile.jsx" className="text-sm text-muted">Текущее фото профиля</span>
+              </div>
+            ) : null}
             <Input label="Имя" value={name} onChange={(e) => setName(e.target.value)} aria-label="Имя" />
             <Input label="Телефон" value={phone} onChange={(e) => setPhone(e.target.value)} aria-label="Телефон" />
             <div data-easytag="id8-react/src/pages/Profile.jsx">

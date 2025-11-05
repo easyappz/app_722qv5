@@ -56,7 +56,7 @@ const AdCreate = () => {
           </div>
           <div data-easytag="id11-react/src/pages/AdCreate.jsx" className="flex gap-3">
             <Button data-easytag="id12-react/src/pages/AdCreate.jsx" type="submit" disabled={isPending}>Создать</Button>
-            <Button data-easytag="id13-react/src/pages/AdCreate.jsx" type="button" className="bg-white text-black border border-line hover:bg-gray-50" onClick={() => navigate(-1)}>Отмена</Button>
+            <Button data-easytag="id13-react/src/pages/AdCreate.jsx" type="button" variant="secondary" onClick={() => navigate(-1)}>Отмена</Button>
           </div>
         </form>
       </div>

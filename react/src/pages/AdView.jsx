@@ -45,7 +45,16 @@ const AdView = () => {
       <div data-easytag="id4-react/src/pages/AdView.jsx" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
         <div data-easytag="id5-react/src/pages/AdView.jsx" className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div data-easytag="id6-react/src/pages/AdView.jsx" className="lg:col-span-7 rounded-2xl border border-line bg-card shadow-soft overflow-hidden">
-            <div data-easytag="id7-react/src/pages/AdView.jsx" className="aspect-[16/10] bg-gradient-to-br from-gray-100 to-gray-200" aria-label="Пространство под изображение" />
+            <div data-easytag="id7-react/src/pages/AdView.jsx" className="aspect-[16/10] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200" aria-label="Пространство под изображение">
+              {ad?.image ? (
+                <img
+                  data-easytag="id19-react/src/pages/AdView.jsx"
+                  src={ad.image}
+                  alt={`Изображение ${ad.title}`}
+                  className="h-full w-full object-cover"
+                />
+              ) : null}
+            </div>
           </div>
           <div data-easytag="id8-react/src/pages/AdView.jsx" className="lg:col-span-5">
             <h1 data-easytag="id9-react/src/pages/AdView.jsx" className="text-3xl font-semibold mb-2">{ad.title}</h1>
@@ -59,9 +68,9 @@ const AdView = () => {
             {isOwner && (
               <div data-easytag="id15-react/src/pages/AdView.jsx" className="flex items-center gap-3 mt-6">
                 <Link data-easytag="id16-react/src/pages/AdView.jsx" to={`/ads/${adId}/edit`}>
-                  <Button data-easytag="id17-react/src/pages/AdView.jsx" className="bg-white text-black border border-line hover:bg-gray-50">Редактировать</Button>
+                  <Button data-easytag="id17-react/src/pages/AdView.jsx" variant="secondary">Редактировать</Button>
                 </Link>
-                <Button data-easytag="id18-react/src/pages/AdView.jsx" onClick={() => doDelete()} disabled={deleting} className="bg-red-500 hover:bg-red-600">
+                <Button data-easytag="id18-react/src/pages/AdView.jsx" onClick={() => doDelete()} disabled={deleting} variant="danger">
                   Удалить
                 </Button>
               </div>

@@ -113,7 +113,7 @@ const AdsList = () => {
         <div data-easytag="id13-react/src/pages/AdsList.jsx" className="flex items-center justify-between mt-8">
           <Button
             data-easytag="id14-react/src/pages/AdsList.jsx"
-            className="bg-white text-black border border-line hover:bg-gray-50"
+            variant="secondary"
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page <= 1}
           >
@@ -124,7 +124,7 @@ const AdsList = () => {
           </p>
           <Button
             data-easytag="id16-react/src/pages/AdsList.jsx"
-            className="bg-white text-black border border-line hover:bg-gray-50"
+            variant="secondary"
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={page >= totalPages}
           >

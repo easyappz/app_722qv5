@@ -7,7 +7,20 @@ const AdCard = ({ ad }) => {
       data-easytag="id1-react/src/components/AdCard.jsx"
       className="rounded-2xl border border-line bg-card shadow-soft overflow-hidden hover:shadow-lg transition-shadow"
     >
-      <div data-easytag="id2-react/src/components/AdCard.jsx" className="aspect-[16/10] bg-gradient-to-br from-gray-100 to-gray-200" aria-label="Пространство под изображение" />
+      <div
+        data-easytag="id2-react/src/components/AdCard.jsx"
+        className="aspect-[16/10] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200"
+        aria-label="Пространство под изображение"
+      >
+        {ad?.image ? (
+          <img
+            data-easytag="id7-react/src/components/AdCard.jsx"
+            src={ad.image}
+            alt={`Изображение ${ad.title}`}
+            className="h-full w-full object-cover"
+          />
+        ) : null}
+      </div>
       <div data-easytag="id3-react/src/components/AdCard.jsx" className="p-4">
         <h3 data-easytag="id4-react/src/components/AdCard.jsx" className="text-[15px] font-semibold line-clamp-2 mb-2">{ad.title}</h3>
         <p data-easytag="id5-react/src/components/AdCard.jsx" className="text-accent font-medium mb-3">{ad.price} ₽</p>

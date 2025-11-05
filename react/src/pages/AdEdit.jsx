@@ -68,7 +68,7 @@ const AdEdit = () => {
           </div>
           <div data-easytag="id11-react/src/pages/AdEdit.jsx" className="flex gap-3">
             <Button data-easytag="id12-react/src/pages/AdEdit.jsx" type="submit" disabled={isPending}>Сохранить</Button>
-            <Button data-easytag="id13-react/src/pages/AdEdit.jsx" type="button" className="bg-white text-black border border-line hover:bg-gray-50" onClick={() => navigate(-1)}>Отмена</Button>
+            <Button data-easytag="id13-react/src/pages/AdEdit.jsx" type="button" variant="secondary" onClick={() => navigate(-1)}>Отмена</Button>
           </div>
         </form>
       </div>
