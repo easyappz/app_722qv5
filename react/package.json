@@ -20,8 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=true react-scripts build --no-minify",
+    "start": "tailwindcss -c ./tailwind.config.js -i ./src/tailwind.css -o ./src/tw.css --watch & react-scripts start",
+    "build": "tailwindcss -c ./tailwind.config.js -i ./src/tailwind.css -o ./src/tw.css && GENERATE_SOURCEMAP=true react-scripts build --no-minify",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

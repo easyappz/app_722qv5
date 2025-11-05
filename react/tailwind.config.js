@@ -1,6 +1,6 @@
-/* Tailwind config for Apple-like minimal aesthetic */
 module.exports = {
-  content: ['react/src/**/*.{js,jsx}'],
+  // Correct content globs for CRA: scan src and public
+  content: ['./src/**/*.{js,jsx}', './public/index.html'],
   theme: {
     extend: {
       colors: {
